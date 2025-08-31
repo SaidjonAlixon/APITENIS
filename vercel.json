@@ -1,0 +1,66 @@
+{
+  "functions": {
+    "api/check-ticket.py": {
+      "runtime": "python3.9",
+      "maxDuration": 10
+    },
+    "api/consume-ticket.py": {
+      "runtime": "python3.9",
+      "maxDuration": 10
+    },
+    "api/health.py": {
+      "runtime": "python3.9",
+      "maxDuration": 5
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/check-ticket",
+      "dest": "/api/check-ticket.py",
+      "methods": ["POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/consume-ticket", 
+      "dest": "/api/consume-ticket.py",
+      "methods": ["POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/health.py",
+      "methods": ["GET", "OPTIONS"]
+    },
+    {
+      "src": "/health",
+      "dest": "/api/health.py",
+      "methods": ["GET", "OPTIONS"]
+    },
+    {
+      "src": "/",
+      "dest": "/api/health.py",
+      "methods": ["GET", "OPTIONS"]
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url"
+  },
+  "regions": ["sin1"],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    }
+  ]
+}

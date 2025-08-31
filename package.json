@@ -1,0 +1,14 @@
+{
+  "name": "tennis-api-server",
+  "version": "1.0.0",
+  "description": "Tennis Court API Server for Vercel",
+  "main": "api/health.py",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["tennis", "api", "server", "vercel", "serverless"],
+  "author": "Tennis Bot",
+  "license": "MIT"
+}
