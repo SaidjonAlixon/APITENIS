@@ -13,8 +13,5 @@
       "maxDuration": 5
     }
   },
-  "env": {
-    "DATABASE_URL": "@database_url"
-  },
   "regions": ["sin1"]
 }
